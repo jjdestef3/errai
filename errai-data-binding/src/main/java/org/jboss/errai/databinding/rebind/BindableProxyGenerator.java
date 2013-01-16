@@ -212,7 +212,7 @@ public class BindableProxyGenerator {
               Stmt.declareVariable(oldValName, paramType, target().invoke(getterMethod.getName())))
           .append(callSetterOnTarget)
           .append(
-              agent().invoke("updateWidgetsAndFireEvent", property, Variable.get(oldValName), Variable.get(property)))
+              agent().invoke("updateWidgetAndFireEvent", property, Variable.get(oldValName), Variable.get(property)))
           .append(returnValueOfSetter)
           .finish();
     }
