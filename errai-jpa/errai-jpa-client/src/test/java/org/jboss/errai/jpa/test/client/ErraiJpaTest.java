@@ -25,6 +25,7 @@ import org.jboss.errai.databinding.client.api.DataBinder;
 import org.jboss.errai.databinding.client.api.PropertyChangeEvent;
 import org.jboss.errai.databinding.client.api.PropertyChangeHandler;
 import org.jboss.errai.ioc.client.Container;
+import org.jboss.errai.ioc.client.container.IOCBeanManagerLifecycle;
 import org.jboss.errai.jpa.client.local.ErraiEntityManager;
 import org.jboss.errai.jpa.client.local.Key;
 import org.jboss.errai.jpa.client.local.backend.LocalStorage;
@@ -70,6 +71,8 @@ public class ErraiJpaTest extends GWTTestCase {
     super.gwtSetUp();
 
     Album.CALLBACK_LOG.clear();
+
+    new IOCBeanManagerLifecycle().resetBeanManager();
 
     // We need to bootstrap the IoC container manually because GWTTestCase
     // doesn't call onModuleLoad() for us.
